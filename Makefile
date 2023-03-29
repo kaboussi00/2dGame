@@ -2,7 +2,8 @@ NAME = 	so_long
 INC = so_long.h
 SRCS = parsing.c\
 	so_long.c\
-	utils.c\
+	utils00.c\
+	utils01.c\
 	get_next_line/get_next_line.c\
 	get_next_line/get_next_line_utils.c\
 
@@ -19,11 +20,10 @@ CC = cc
 all:$(NAME)
 
 $(NAME):$(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 %.o:%.c $(INC)
-	$(CC) $(CFLAGS) -o $@ -c $<
-
+	$(CC) $(CFLAGS) -Imlx -c $< -o $@
 clean:
 	$(RM) $(OBJS)
 
