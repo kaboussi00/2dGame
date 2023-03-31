@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 12:06:55 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/30 16:46:52 by kaboussi         ###   ########.fr       */
+/*   Created: 2023/03/30 16:14:21 by kaboussi          #+#    #+#             */
+/*   Updated: 2023/03/30 16:48:30 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -65,21 +65,27 @@ char	*ft_strdup(const char *str);
 char	*ft_itoa(int n);
 int		ft_putnbr(int n);
 
-//PARSING_MANDATORY
+//PARSING_BONUS
 
-void	printerror_message(char *str);
 int		check_opning(char *file);
-void	check_extension(char *str);
-void	check_rectangle(char *file, t_var *var);
-void	check_walls(t_var	*var);
-void	check_char(t_var	*var);
 void	check_not_char(t_var *var);
+void	check_extension(char *str);
+void	check_rectangle(char *file, t_var	*var);
+void	char2bonus(t_var *var);
+void	check_char(t_var	*var);
+void	wallsbonus2(t_var *var);
+void	check_walls_bonus(t_var	*var);
+void	printerror_message(char *str);
 
 //MLX_FUNCTIONS
 
+
+void	put_image(t_var *var);
+void	print_moves(t_var	*var);
 int		render(t_var *var);
-int		ex_it(t_var *var);
-int		key_prs(int code, t_var *var);
 int		check_wall(t_var *var, int code);
+void	check_exit(t_var	*var);
+int		key_prs(int code, t_var *var);
+int		ex_it(t_var *var);
 
 #endif

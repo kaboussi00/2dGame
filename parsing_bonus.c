@@ -1,16 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   parsing_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/17 13:23:20 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/30 16:29:11 by kaboussi         ###   ########.fr       */
+/*   Created: 2023/03/30 15:26:41 by kaboussi          #+#    #+#             */
+/*   Updated: 2023/03/30 16:28:36 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
+
+int	check_opning(char *file)
+{
+	int	fd;
+
+	fd = open(file, O_RDWR);
+	if (fd == -1)
+	{
+		printerror_message("can't open file\n");
+	}
+	return (fd);
+}
 
 void	check_not_char(t_var *var)
 {
@@ -20,7 +32,7 @@ void	check_not_char(t_var *var)
 		var->j = 0;
 		while (var->j < var->len)
 		{
-			if (!ft_strchr("10CPE", var->map[var->i][var->j]))
+			if (!ft_strchr("10CPEM", var->map[var->i][var->j]))
 				printerror_message("invalid character\n");
 			var->j++;
 		}
@@ -70,40 +82,4 @@ void	check_rectangle(char *file, t_var	*var)
 		var->lines += 1;
 	}
 	var->lines++;
-}
-
-void	char2(t_var	*var)
-{
-	if (var->e != 1)
-		printerror_message("more or less than one exit\n");
-	if (var->p != 1)
-		printerror_message("more or less than one player\n");
-	if (var->c < 1)
-		printerror_message("no item\n");
-}
-
-void	check_char(t_var	*var)
-{
-	var->i = 0;
-	var->c = 0;
-	var->e = 0;
-	var->p = 0;
-	while (var->i++ < var->lines - 1)
-	{
-		var->j = 0;
-		while (var->j++ < var->len - 1)
-		{
-			if (var->map[var->i][var->j] == 'C')
-				var->c += 1;
-			if (var->map[var->i][var->j] == 'E')
-				var->e += 1;
-			if (var->map[var->i][var->j] == 'P')
-			{
-				var->p += 1;
-				var->pos_i = var->i;
-				var->pos_j = var->j;
-			}
-		}
-	}
-	char2(var);
 }
