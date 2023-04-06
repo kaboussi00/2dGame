@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 15:31:25 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/30 16:29:11 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:07:41 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,3 +58,11 @@ void	check_walls(t_var	*var)
 	}
 	walls2(var);
 }
+
+// void	backtracking(t_var *var)
+// {
+// 	char **copie;
+
+// 	copie = var->map
+// }
+		

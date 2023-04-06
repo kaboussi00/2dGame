@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:06:30 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/30 16:29:11 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:54:09 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,22 +72,31 @@ int	render(t_var *var)
 		{
 			if (var->map[var->i][var->j] == '1')
 				mlx_put_image_to_window (var->mlx, \
-				var->mlx_w, var->img_w, var->j * 50, var->i * 50);
+				var->mlx_w, var->img_w, var->j * SZ, var->i * SZ);
 			if (var->map[var->i][var->j] == '0')
 				mlx_put_image_to_window(var->mlx, \
-				var->mlx_w, var->img_0, var->j * 50, var->i * 50);
+				var->mlx_w, var->img_0, var->j * SZ, var->i * SZ);
 			if (var->map[var->i][var->j] == 'C')
 				mlx_put_image_to_window(var->mlx, \
-				var->mlx_w, var->img_c, var->j * 50, var->i * 50);
+				var->mlx_w, var->img_c, var->j * SZ, var->i * SZ);
 			if (var->map[var->i][var->j] == 'E')
 				mlx_put_image_to_window(var->mlx, \
-				var->mlx_w, var->img_e, var->j * 50, var->i * 50);
+				var->mlx_w, var->img_e, var->j * SZ, var->i * SZ);
 			if (var->map[var->i][var->j] == 'P')
 				mlx_put_image_to_window(var->mlx, \
-				var->mlx_w, var->img_p, var->j * 50, var->i * 50);
+				var->mlx_w, var->img_p, var->j * SZ, var->i * SZ);
 		}
 	}
 	return (0);
+}
+
+void	create_imgs(t_var *var)
+{
+	var->img_w = mlx_xpm_file_to_image(var->mlx, "wl.xpm", &var->w, &var->h);
+	var->img_p = mlx_xpm_file_to_image(var->mlx, "ll.xpm", &var->w, &var->h);
+	var->img_e = mlx_xpm_file_to_image(var->mlx, "ll.xpm", &var->w, &var->h);
+	var->img_c = mlx_xpm_file_to_image(var->mlx, "EEE.xpm", &var->w, &var->h);
+	var->img_0 = mlx_xpm_file_to_image(var->mlx, "walll.xpm", &var->w, &var->h);
 }
 
 int	main(int ac, char **av)
@@ -105,16 +114,14 @@ int	main(int ac, char **av)
 	check_walls(var);
 	check_char(var);
 	check_not_char(var);
+	check_validation(var);
 	var->mlx = mlx_init();
-	var->mlx_w = mlx_new_window(var->mlx, 50 * var->len, 50 * var->lines, "k");
-	var->img_w = mlx_xpm_file_to_image(var->mlx, "wl.xpm", &var->w, &var->h);
-	var->img_p = mlx_xpm_file_to_image(var->mlx, "ll.xpm", &var->w, &var->h);
-	var->img_e = mlx_xpm_file_to_image(var->mlx, "ll.xpm", &var->w, &var->h);
-	var->img_c = mlx_xpm_file_to_image(var->mlx, "EEE.xpm", &var->w, &var->h);
-	var->img_0 = mlx_xpm_file_to_image(var->mlx, "walll.xpm", &var->w, &var->h);
-	render(var);
+	var->mlx_w = mlx_new_window(var->mlx, SZ * var->len, SZ * var->lines, "k");
+	create_imgs(var);
+	mlx_loop_hook(var->mlx, render, var);
 	mlx_hook(var->mlx_w, 02, 0L, key_prs, var);
 	mlx_hook(var->mlx_w, 17, 0L, ex_it, var);
 	mlx_loop(var->mlx);
+	ft_free(var->map);
+	free(var);
 }
-

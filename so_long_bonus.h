@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 16:14:21 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/30 16:48:30 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:45:08 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # include <unistd.h>
 # include "get_next_line/get_next_line.h"
 
+# define SZ 50
+
 typedef struct s_var
 {
 	int		fd;
@@ -31,6 +33,7 @@ typedef struct s_var
 	int		p;
 	int		e;
 	int		m;
+	int		l;
 	int		k;
 	int		lines;
 	int		pos_i;
@@ -48,13 +51,22 @@ typedef struct s_var
 	void	*img_p;
 	void	*img_c;
 	void	*img_0;
-	void	*img_m;
+	void	*m1;
+	void	*m2;
+	void	*m3;
+	void	*m4;
 	int		w;
 	int		h;
 	int		save_i;
 	int		save_j;
 	int		count_move;
 }	t_var;
+
+typedef struct s_data
+{
+	int		x;
+	int		y;
+}	t_data;
 
 //UTILS_FUNCTIONS
 
@@ -80,7 +92,7 @@ void	printerror_message(char *str);
 //MLX_FUNCTIONS
 
 
-void	put_image(t_var *var);
+void	put_image(t_var *var, int x);
 void	print_moves(t_var	*var);
 int		render(t_var *var);
 int		check_wall(t_var *var, int code);

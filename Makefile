@@ -1,11 +1,13 @@
 NAME = 	so_long
 NAME_B = so_long_bonus
 INC = so_long.h
+INC = so_long_bonus.h
 SRCS = parsing.c\
 	parsing01.c\
 	so_long.c\
 	utils00.c\
 	utils01.c\
+	backtracking.c\
 	get_next_line/get_next_line.c\
 	get_next_line/get_next_line_utils.c\
 
@@ -38,7 +40,7 @@ $(NAME):$(OBJS)
 
 bonus:$(NAME_B)
 
-$(NAME_B):$(OBJS_B)
+$(NAME_B):$(OBJS_B) $(INC_B)
 	$(CC) $(CFLAGS) $(OBJS_B) -lmlx -framework OpenGL -framework AppKit -o $(NAME_B)
 
 clean:

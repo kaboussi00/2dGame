@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 15:26:41 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/30 16:28:36 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:02:51 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	check_rectangle(char *file, t_var	*var)
 {
 	var->i = 0;
 	var->lines = 0;
+	var->len = 0;
 	var->file = ft_strdup(file);
 	var->fd = open(file, O_RDWR);
 	if (var->fd == -1)

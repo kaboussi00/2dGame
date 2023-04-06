@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 15:26:27 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/30 16:41:04 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/04/06 18:44:29 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int	key_prs(int code, t_var *var)
 {
 	var->save_i = var->pos_i;
 	var->save_j = var->pos_j;
-
 	if (code == 53)
 		exit(0);
 	if (code == 13 && !check_wall(var, code))
@@ -69,6 +68,19 @@ int	key_prs(int code, t_var *var)
 	return (0);
 }
 
+void	create_img(t_var *var)
+{
+	var->img_w = mlx_xpm_file_to_image(var->mlx, "wa1.xpm", &var->w, &var->h);
+	var->img_p = mlx_xpm_file_to_image(var->mlx, "pla1.xpm", &var->w, &var->h);
+	var->img_e = mlx_xpm_file_to_image(var->mlx, "ex1.xpm", &var->w, &var->h);
+	var->img_c = mlx_xpm_file_to_image(var->mlx, "coll1.xpm", &var->w, &var->h);
+	var->img_0 = mlx_xpm_file_to_image(var->mlx, "gr1.xpm", &var->w, &var->h);
+	var->m1 = mlx_xpm_file_to_image(var->mlx, "M1.xpm", &var->w, &var->h);
+	var->m2 = mlx_xpm_file_to_image(var->mlx, "M2.xpm", &var->w, &var->h);
+	var->m3 = mlx_xpm_file_to_image(var->mlx, "M3.xpm", &var->w, &var->h);
+	var->m4 = mlx_xpm_file_to_image(var->mlx, "M4.xpm", &var->w, &var->h);
+}
+
 int	main(int ac, char **av)
 {
 	t_var	*var;
@@ -85,14 +97,9 @@ int	main(int ac, char **av)
 	check_char(var);
 	check_not_char(var);
 	var->mlx = mlx_init();
-	var->mlx_w = mlx_new_window(var->mlx, 50 * var->len, 50 * var->lines, "k");
-	var->img_w = mlx_xpm_file_to_image(var->mlx, "wl.xpm", &var->w, &var->h);
-	var->img_p = mlx_xpm_file_to_image(var->mlx, "ll.xpm", &var->w, &var->h);
-	var->img_e = mlx_xpm_file_to_image(var->mlx, "ll.xpm", &var->w, &var->h);
-	var->img_c = mlx_xpm_file_to_image(var->mlx, "EEE.xpm", &var->w, &var->h);
-	var->img_0 = mlx_xpm_file_to_image(var->mlx, "walll.xpm", &var->w, &var->h);
-	var->img_m = mlx_xpm_file_to_image(var->mlx, "enemy.xpm", &var->w, &var->h);
-	render(var);
+	var->mlx_w = mlx_new_window(var->mlx, SZ * var->len, SZ * var->lines, "k");
+	create_img(var);
+	mlx_loop_hook(var->mlx, render, var);
 	mlx_hook(var->mlx_w, 02, 0L, key_prs, var);
 	mlx_hook(var->mlx_w, 17, 0L, ex_it, var);
 	mlx_loop(var->mlx);
