@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:06:30 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/04/05 16:54:09 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/04/07 20:15:47 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	key_prs(int code, t_var *var)
 {
 	var->save_i = var->pos_i;
 	var->save_j = var->pos_j;
-
 	if (code == 53)
 		exit(0);
 	if (code == 13 && !check_wall(var, code))
@@ -92,11 +91,11 @@ int	render(t_var *var)
 
 void	create_imgs(t_var *var)
 {
-	var->img_w = mlx_xpm_file_to_image(var->mlx, "wl.xpm", &var->w, &var->h);
-	var->img_p = mlx_xpm_file_to_image(var->mlx, "ll.xpm", &var->w, &var->h);
-	var->img_e = mlx_xpm_file_to_image(var->mlx, "ll.xpm", &var->w, &var->h);
-	var->img_c = mlx_xpm_file_to_image(var->mlx, "EEE.xpm", &var->w, &var->h);
-	var->img_0 = mlx_xpm_file_to_image(var->mlx, "walll.xpm", &var->w, &var->h);
+	var->img_w = mlx_xpm_file_to_image(var->mlx, "wa1.xpm", &var->w, &var->h);
+	var->img_p = mlx_xpm_file_to_image(var->mlx, "pla1.xpm", &var->w, &var->h);
+	var->img_e = mlx_xpm_file_to_image(var->mlx, "ex1.xpm", &var->w, &var->h);
+	var->img_c = mlx_xpm_file_to_image(var->mlx, "coll1.xpm", &var->w, &var->h);
+	var->img_0 = mlx_xpm_file_to_image(var->mlx, "gr1.xpm", &var->w, &var->h);
 }
 
 int	main(int ac, char **av)
@@ -106,6 +105,8 @@ int	main(int ac, char **av)
 	if (ac != 2)
 		printerror_message("arg prb\n");
 	var = malloc(sizeof(t_var));
+	if (!var)
+		return (0);
 	var->count_move = 0;
 	var->i = 0;
 	var->fd = check_opning(av[1]);
@@ -122,6 +123,5 @@ int	main(int ac, char **av)
 	mlx_hook(var->mlx_w, 02, 0L, key_prs, var);
 	mlx_hook(var->mlx_w, 17, 0L, ex_it, var);
 	mlx_loop(var->mlx);
-	ft_free(var->map);
-	free(var);
+	free_max(var);
 }

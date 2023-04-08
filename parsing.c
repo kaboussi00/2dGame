@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:23:20 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/04/03 17:08:14 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/04/07 16:32:34 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	check_extension(char *str)
 
 void	check_rectangle(char *file, t_var	*var)
 {
+	(void)file;
 	var->i = 0;
 	var->lines = 0;
 	var->file = ft_strdup(file);
@@ -70,6 +71,7 @@ void	check_rectangle(char *file, t_var	*var)
 		var->lines += 1;
 	}
 	var->lines++;
+	free(var->a);
 }
 
 void	char2(t_var	*var)

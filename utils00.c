@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 19:24:43 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/30 16:29:11 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/04/07 20:16:17 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,16 @@ char	*ft_strdup(const char *str)
 	}
 	p[i] = '\0';
 	return (p);
+}
+
+void	free_max(t_var *var)
+{
+	mlx_destroy_image(var->mlx, var->img_w);
+	mlx_destroy_image(var->mlx, var->img_e);
+	mlx_destroy_image(var->mlx, var->img_p);
+	mlx_destroy_image(var->mlx, var->img_c);
+	mlx_destroy_image(var->mlx, var->img_0);
+	ft_free(var->map);
+	free(var->file);
+	free(var);
 }

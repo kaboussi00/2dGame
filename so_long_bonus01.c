@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 15:59:13 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/04/05 16:44:45 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/04/06 20:14:30 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,6 @@ void	animation(t_var *v, int x)
 		mlx_put_image_to_window(v->mlx, v->mlx_w, v->m3, v->j * SZ, v->i * SZ);
 	else if (x % 4 == 3)
 		mlx_put_image_to_window(v->mlx, v->mlx_w, v->m4, v->j * SZ, v->i * SZ);
-	// else if (x % 8 == 4)
-	// 	mlx_put_image_to_window(v->mlx, v->mlx_w, v->m2, v->j * SZ, v->i * SZ);
-	// else if (x % 8 == 5)
-	// 	mlx_put_image_to_window(v->mlx, v->mlx_w, v->m3, v->j * SZ, v->i * SZ);
-	// else if (x % 8 == 6)
-	// 	mlx_put_image_to_window(v->mlx, v->mlx_w, v->m4, v->j * SZ, v->i * SZ);
-	// else if (x % 8 == 7)
-	// 	mlx_put_image_to_window(v->mlx, v->mlx_w, v->m1, v->j * SZ, v->i * SZ);
 }
 
 void	put_image(t_var *var, int x)

@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 16:37:58 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/30 16:38:29 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/04/07 20:18:33 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,20 @@ int	ex_it(t_var *var)
 {
 	(void)var;
 	exit(0);
+}
+
+void	free_maxb(t_var *var)
+{
+	mlx_destroy_image(var->mlx, var->img_w);
+	mlx_destroy_image(var->mlx, var->img_e);
+	mlx_destroy_image(var->mlx, var->img_p);
+	mlx_destroy_image(var->mlx, var->img_c);
+	mlx_destroy_image(var->mlx, var->img_0);
+	mlx_destroy_image(var->mlx, var->m1);
+	mlx_destroy_image(var->mlx, var->m2);
+	mlx_destroy_image(var->mlx, var->m3);
+	mlx_destroy_image(var->mlx, var->m4);
+	ft_free(var->map);
+	free(var->file);
+	free(var);
 }

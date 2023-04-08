@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 18:03:52 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/04/05 16:51:33 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/04/07 20:11:40 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	charge(t_var *var, t_data p)
 	if (var->copie[p.y][p.x] == 'E')
 	{
 		var->o++;
+		var->copie[p.y][p.x] = '1';
 		return (0);
 	}
 	if (p.y < 0 || p.y >= var->lines || p.x < 0 || p.x >= var->len
@@ -77,10 +78,9 @@ void	check_validation(t_var *var)
 		var->j = -1;
 		while (++var->j < var->len)
 		{
-			if (var->copie[var->i][var->j] == 'C' || var->o == 1)
+			if (var->copie[var->i][var->j] == 'C' || var->o == 0)
 				printerror_message("invalid map !\n");
 		}
 	}
 	ft_free(var->copie);
 }
-

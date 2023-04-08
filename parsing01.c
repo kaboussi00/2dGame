@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 15:31:25 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/04/03 17:07:41 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/04/06 20:38:12 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ void	check_walls(t_var	*var)
 {
 	var->i = 0;
 	close(var->fd);
-	var->fd = open(var->file, O_RDWR);
+	var->fd = check_opning(var->file);
 	var->map = malloc(sizeof(char *) * (var->lines + 1));
+	if (!var->map)
+		printerror_message("problem in allocation\n");
 	var->a = get_next_line(var->fd);
 	while (var->a != NULL)
 	{
@@ -58,11 +60,3 @@ void	check_walls(t_var	*var)
 	}
 	walls2(var);
 }
-
-// void	backtracking(t_var *var)
-// {
-// 	char **copie;
-
-// 	copie = var->map
-// }
-		

@@ -17,6 +17,7 @@ SRCS_B = parsing_bonus.c\
 	so_long_bonus01.c\
 	utils00_bonus.c\
 	utils01_bonus.c\
+	backtracking.c\
 	get_next_line/get_next_line.c\
 	get_next_line/get_next_line_utils.c\
 

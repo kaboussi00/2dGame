@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 11:39:44 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/18 11:50:19 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/04/06 20:14:53 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <stdio.h>
 # include <fcntl.h>
 
-int         ft_str_len(const char *str);
+int			ft_str_len(const char *str);
 char		*stdup(const char *str);
 char		*ft_strchr(const char *str, int ch);
 char		*ft_sub_str(char const *s, int start, int len);

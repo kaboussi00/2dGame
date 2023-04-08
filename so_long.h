@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:06:55 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/04/05 16:35:44 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/04/07 20:16:26 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,8 @@ typedef struct s_var
 	int		pos_i;
 	int		pos_j;
 	char	*a;
-	char	*str;
 	char	*file;
 	char	**map;
-	char	**maap;
 	char	**copie;
 	int		len;
 	void	*mlx;
@@ -74,6 +72,8 @@ int		ft_str_line(const char *str);
 char	*ft_strdup(const char *str);
 char	*ft_itoa(int n);
 int		ft_putnbr(int n);
+char	**ft_free(char **p);
+void	free_max(t_var *var);
 
 //PARSING_MANDATORY
 

@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 18:07:26 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/30 16:29:11 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/04/06 20:09:20 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,18 @@ int	ex_it(t_var *var)
 {
 	(void)var;
 	exit(0);
+}
+
+char	**ft_free(char **p)
+{
+	int	i;
+
+	i = 0;
+	while (p[i])
+	{
+		free(p[i]);
+		i++;
+	}
+	free(p);
+	return (NULL);
 }

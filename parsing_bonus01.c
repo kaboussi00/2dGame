@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 16:06:04 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/30 16:28:26 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/04/06 20:13:31 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	check_char(t_var	*var)
 	char2bonus(var);
 }
 
-
 void	wallsbonus2(t_var *var)
 {
 	var->i = 0;
@@ -88,4 +87,3 @@ void	check_walls_bonus(t_var	*var)
 	}
 	wallsbonus2(var);
 }
-

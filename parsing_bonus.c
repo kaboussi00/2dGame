@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 15:26:41 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/04/03 17:02:51 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/04/07 16:32:59 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,5 @@ void	check_rectangle(char *file, t_var	*var)
 		var->lines += 1;
 	}
 	var->lines++;
+	free(var->a);
 }

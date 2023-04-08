@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 16:14:21 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/04/05 16:45:08 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/04/07 20:19:08 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ int		ft_str_line(const char *str);
 char	*ft_strdup(const char *str);
 char	*ft_itoa(int n);
 int		ft_putnbr(int n);
+char	**ft_free(char **p);
+void	free_maxb(t_var *var);
 
 //PARSING_BONUS
 
@@ -90,7 +92,6 @@ void	check_walls_bonus(t_var	*var);
 void	printerror_message(char *str);
 
 //MLX_FUNCTIONS
-
 
 void	put_image(t_var *var, int x);
 void	print_moves(t_var	*var);

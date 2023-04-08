@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 15:26:27 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/04/06 18:44:29 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/04/07 20:18:44 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,5 @@ int	main(int ac, char **av)
 	mlx_hook(var->mlx_w, 02, 0L, key_prs, var);
 	mlx_hook(var->mlx_w, 17, 0L, ex_it, var);
 	mlx_loop(var->mlx);
+	free_maxb(var);
 }
